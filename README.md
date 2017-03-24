@@ -52,7 +52,7 @@ The output `MediaSource` object.
 ## Example
 Here is an example of how to send video/audio over a WebRTC DataChannel (with [simple-peer](https://github.com/feross/simple-peer)), **without** using media channels.  
 
-Keep in mind there is an moderate increase in latency, so this is only suitable for some applications.  
+Keep in mind there is a moderate increase in latency, so this is only suitable for some applications.  
 
 ```javascript
 getMedia({video: true, audio: true}, function (err, stream) {
