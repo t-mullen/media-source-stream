@@ -7,7 +7,8 @@ npm install media-source-stream
 ```
 
 ## Usage
-The easiest way to get a compatatible readable stream is to use [media-recorder-stream](https://github.com/mafintosh/media-recorder-stream), but you can also create your own via FFMPEG.  
+The easiest way to get a compatible readable stream is to use [media-recorder-stream](https://github.com/mafintosh/media-recorder-stream), but you can also create your own via FFMPEG.  
+
 ```javascript
 var getMedia = require('getusermedia')
 var recorder = require('media-recorder-stream')
@@ -37,16 +38,22 @@ getMedia({video: true, audio: true}, function (err, media) {
 
 ## API
 ### `sourceStream = new MediaSourceStream(stream, [opts])`  
+
 Create a new MediaSourceStream.  
+
 `stream` is any Node.js-style Readable stream.  
+
 Optional `opts` is the options object to pass to the `MediaSource` constructor.  
 
 `sourceStream.mediaSource`  
+
 The output `MediaSource` object.  
 
 ## Example
 Here is an example of how to send video/audio over a WebRTC DataChannel (with [simple-peer](https://github.com/feross/simple-peer)), **without** using media channels.  
+
 Keep in mind there is an moderate increase in latency, so this is only suitable for some applications.  
+
 ```javascript
 getMedia({video: true, audio: true}, function (err, stream) {
   var recordStream = mediaRecorderStream(stream, {
