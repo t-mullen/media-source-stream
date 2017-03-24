@@ -45,7 +45,7 @@ Create a new MediaSourceStream.
 
 Optional `opts` is the options object to pass to the `MediaSource` constructor.  
 
-`sourceStream.mediaSource`  
+### `sourceStream.mediaSource`  
 
 The output `MediaSource` object.  
 
