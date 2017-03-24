@@ -1,0 +1,23 @@
+{
+  "name": "media-source-stream",
+  "version": "1.0.0",
+  "description": "Create a MediaSource from a Readable stream",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "browserify src/index.js -s MediaSourceStream > dist/media-source-stream.js",
+    "test": "standard --fix src/*.js && zuul --local --ui tape test/*.js"
+  },
+  "author": "Thomas Mullen",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "getusermedia": "^2.0.1",
+    "media-recorder-stream": "^2.1.1",
+    "standard": "^8.6.0",
+    "tape": "^4.6.3",
+    "zuul": "^3.8.0"
+  }
+}
