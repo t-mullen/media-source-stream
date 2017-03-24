@@ -8,7 +8,7 @@ npm install media-source-stream
 
 ## Usage
 The easiest way to get a compatatible readable stream is to use [media-recorder-stream](https://github.com/mafintosh/media-recorder-stream), but you can also create your own via FFMPEG.  
-```
+```javascript
 var getMedia = require('getusermedia')
 var recorder = require('media-recorder-stream')
 var sourcer = require('media-source-stream')
@@ -30,7 +30,7 @@ getMedia({video: true, audio: true}, function (err, media) {
 ```
 
 ## Why?
-- Manipulate raw audio/video data collected from a MediaStream, and get a MediaStream back.  
+- Modify MediaStreams in realtime, in the browser.
 - Send audio/video data over a WebRTC DataChannel.
 - Send audio/video over a `net.socket`.
 - Upload media without needing to finish recording.
