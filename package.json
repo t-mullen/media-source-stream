@@ -1,6 +1,6 @@
 {
   "name": "media-source-stream",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create a MediaSource from a Readable stream",
   "main": "index.js",
   "directories": {
