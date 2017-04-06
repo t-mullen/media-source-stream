@@ -25,7 +25,8 @@ getMedia({video: true, audio: true}, function (err, media) {
   // Do stuff to the data...
   
   // And change it back!
-  var sourceStream = MediaSourceStream(recordStream)
+  var sourceStream = MediaSourceStream() // Creates a writable stream
+  recordStream.pipe(sourceStream)
   sourceStream.mediaSource
 })
 ```
@@ -76,7 +77,8 @@ getMedia({video: true, audio: true}, function (err, stream) {
     recordStream.pipe(peer1)
   })
 
-  var sourceStream = MediaSourceStream(peer2)
+  var sourceStream = MediaSourceStream()
+  peer2.pipe(sourceStream)
 
   var url = window.URL.createObjectURL(sourceStream.mediaSource)
   document.querySelector('video').src = url

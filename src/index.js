@@ -2,9 +2,14 @@ module.exports = MediaSourceStream
 
 /* globals MediaSource */
 
-function MediaSourceStream (stream, opts) {
+var stream = require('readable-stream')
+var inherits = require('inherits')
+
+inherits(MediaSourceStream, stream.Writable)
+
+function MediaSourceStream (opts) {
   var self = this
-  if (!(self instanceof MediaSourceStream)) return new MediaSourceStream(stream, opts)
+  if (!(self instanceof MediaSourceStream)) return new MediaSourceStream(opts)
 
   if (!('MediaSource' in window)) throw new Error('No MediaSource support: Unsupported browser')
 
@@ -18,10 +23,15 @@ function MediaSourceStream (stream, opts) {
     self._sourceBuffer = self.mediaSource.addSourceBuffer(opts.mimeType)
   })
 
-  stream.on('data', function (chunk) {
-    if (!self._sourceBuffer || self._sourceBuffer.updating) return
-    self._sourceBuffer.appendBuffer(chunk)
-  })
+  stream.Writable.call(this, opts)
+}
+
+MediaSourceStream.prototype._write = function (chunk, enc, next) {
+  var self = this
+
+  if (!self._sourceBuffer || self._sourceBuffer.updating) return
+  self._sourceBuffer.appendBuffer(chunk)
+  next()
 }
 
 MediaSourceStream.prototype.destroy = function () {

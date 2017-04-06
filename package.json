@@ -1,6 +1,6 @@
 {
   "name": "media-source-stream",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Create a MediaSource from a Readable stream",
   "main": "src/index.js",
   "directories": {
@@ -19,5 +19,9 @@
     "standard": "^8.6.0",
     "tape": "^4.6.3",
     "zuul": "^3.8.0"
+  },
+  "dependencies": {
+    "inherits": "^2.0.3",
+    "stream": "0.0.2"
   }
 }
