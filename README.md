@@ -1,6 +1,10 @@
 # media-source-stream
+
 Creates [MSE MediaSource](https://developer.mozilla.org/en-US/docs/Web/API/MediaSource) objects from readable streams.  
+
 Does the reverse of [media-recorder-stream](https://github.com/mafintosh/media-recorder-stream).  
+
+[Demo](https://rationalcoding.github.io/media-source-stream/)
 
 ```
 npm install media-source-stream
