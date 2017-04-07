@@ -1,18 +1,32 @@
 <html lang="en">
   <head>
-
+    <style>
+      video {
+        max-width: 200px;
+      }
+    
+    </style>
   </head>
   <body>
+    <h1>Video over data channel</h1>
+    <p>Datachannel replacement for MediaConnection.</p>
+    <h3>Local</h3>
+    <video autoplay></video>
+    <h3>Remote</h3>
     <video autoplay></video>
   </body>
   <script src="simplepeer.min.js"></script>
   <script src="media-recorder-stream.js"></script>
   <script src="../dist/media-source-stream.js"></script>
   <script>
+    var videos = document.querySelectorAll('video')
+    
     navigator.getUserMedia({
       audio: true,
       video: true,
     },function (stream) {
+      
+      videos[0].src = window.URL.createObjectURL(stream)
       
       var recordStream = mediaRecorderStream(stream, {
         mimeType: 'video/webm; codecs=vp8',
@@ -34,10 +48,11 @@
         recordStream.pipe(peer1)
       })
       
-      var sourceStream = MediaSourceStream(peer2)
+      var sourceStream = new MediaSourceStream()
+      peer2.pipe(sourceStream)
       
       var url = window.URL.createObjectURL(sourceStream.mediaSource)
-      document.querySelector('video').src = url
+      videos[1].src = url
     }, function () {})
   </script>
 </html>
