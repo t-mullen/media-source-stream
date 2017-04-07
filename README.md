@@ -55,9 +55,9 @@ Optional `opts` is the options object to pass to the `MediaSource` constructor.
 The output `MediaSource` object.  
 
 ## Example
-Here is an example of how to send video/audio over a WebRTC DataChannel (with [simple-peer](https://github.com/feross/simple-peer)), **without** using media channels.  
+Here is an example of how to send video/audio over a WebRTC DataChannel (with [simple-peer](https://github.com/feross/simple-peer)), **without** using media channels. You could also do this over WebSockets.
 
-Keep in mind there is a moderate increase in latency, so this is only suitable for some applications.  
+Keep in mind there is a moderate increase in latency, so this is only suitable when MediaStreams aren't an option.
 
 ```javascript
 getMedia({video: true, audio: true}, function (err, stream) {
