@@ -42,11 +42,9 @@ getMedia({video: true, audio: true}, function (err, media) {
 - Upload media without needing to finish recording.
 
 ## API
-### `sourceStream = new MediaSourceStream(stream, [opts])`  
+### `sourceStream = new MediaSourceStream([opts])`  
 
-Create a new MediaSourceStream.  
-
-`stream` is any Node.js-style Readable stream.  
+Create a new MediaSourceStream, which is a writable stream.   
 
 Optional `opts` is the options object to pass to the `MediaSource` constructor.  
 
