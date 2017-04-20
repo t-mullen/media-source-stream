@@ -87,3 +87,5 @@ getMedia({video: true, audio: true}, function (err, stream) {
 })
 ```
 
+***Note:** You want to start recording once you already have a connection so that all recorded data is sent. If any initial data is missing, the stream cannot be reconstructed on the other side.*
+
