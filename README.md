@@ -15,13 +15,13 @@ The easiest way to get a compatible readable stream is to use [media-recorder-st
 
 ```javascript
 var getMedia = require('getusermedia')
-var recorder = require('media-recorder-stream')
-var sourcer = require('media-source-stream')
+var MediaRecorderStream = require('media-recorder-stream')
+var MediaSourceStream = require('media-source-stream')
 
 getMedia({video: true, audio: true}, function (err, media) {
 
   // Change a MediaStream into a data stream
-  var recordStream = recorder(media, {
+  var recordStream = MediaRecorderStream(media, {
     mimeType: 'video/webm; codecs=vp8', // You MUST set the MIME type
     interval: 100 // A short interval is recommended to keep buffer sizes low
   })
@@ -59,7 +59,7 @@ Keep in mind there is a moderate increase in latency, so this is only suitable w
 
 ```javascript
 getMedia({video: true, audio: true}, function (err, stream) {
-  var recordStream = mediaRecorderStream(stream, {
+  var recordStream = MediaRecorderStream(stream, {
     mimeType: 'video/webm; codecs=vp8',
     interval: 100
   })
