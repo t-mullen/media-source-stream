@@ -22,7 +22,7 @@ getMedia({video: true, audio: true}, function (err, media) {
 
   // Change a MediaStream into a data stream
   var recordStream = MediaRecorderStream(media, {
-    mimeType: 'video/webm; codecs=vp8', // You MUST set the MIME type
+    mimeType: 'video/webm; codecs="opus,vp8"', // You MUST set the MIME type
     interval: 100 // A short interval is recommended to keep buffer sizes low
   })
   
@@ -30,7 +30,7 @@ getMedia({video: true, audio: true}, function (err, media) {
   
   // And change it back!
   var sourceStream = MediaSourceStream({  // Creates a writable stream
-    mimeType: 'video/webm; codecs=vp8'
+    mimeType: 'video/webm; codecs="opus,vp8"'
   }) 
   recordStream.pipe(sourceStream)
   sourceStream.mediaSource
