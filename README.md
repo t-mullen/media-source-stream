@@ -29,7 +29,9 @@ getMedia({video: true, audio: true}, function (err, media) {
   // Do stuff to the data...
   
   // And change it back!
-  var sourceStream = MediaSourceStream() // Creates a writable stream
+  var sourceStream = MediaSourceStream({  // Creates a writable stream
+    mimeType: 'video/webm; codecs=vp8'
+  }) 
   recordStream.pipe(sourceStream)
   sourceStream.mediaSource
 })
