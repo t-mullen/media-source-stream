@@ -30,7 +30,7 @@
       video: true,
     },function (stream) {
       
-      videos[0].src = window.URL.createObjectURL(stream)
+      videos[0].srcObject = stream
       
       var recordStream = mediaRecorderStream(stream, {
         mimeType: 'video/webm; codecs=vp8',
@@ -55,8 +55,7 @@
       var sourceStream = new MediaSourceStream()
       peer2.pipe(sourceStream)
       
-      var url = window.URL.createObjectURL(sourceStream.mediaSource)
-      videos[1].src = url
+      videos[1].srcObject = sourceStream.mediaSource
     }, function () {})
   </script>
 </html>
