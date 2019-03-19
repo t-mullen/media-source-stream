@@ -55,7 +55,8 @@
       var sourceStream = new MediaSourceStream()
       peer2.pipe(sourceStream)
       
-      videos[1].srcObject = sourceStream.mediaSource
+      var url = window.URL.createObjectURL(sourceStream.mediaSource)
+      videos[1].src = url
     }, function () {})
   </script>
 </html>
