@@ -6,7 +6,7 @@ Creates [MSE MediaSource](https://developer.mozilla.org/en-US/docs/Web/API/Media
 
 Does the reverse of [media-recorder-stream](https://github.com/mafintosh/media-recorder-stream).  
 
-[Demo](https://rationalcoding.github.io/media-source-stream/)
+[Demo](https://t-mullen.github.io/media-source-stream/)
 
 ```
 npm install media-source-stream
